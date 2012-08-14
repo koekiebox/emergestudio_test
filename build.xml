@@ -1,0 +1,62 @@
+<project name="Tic-Tac-Toe" default="run_build" basedir=".">
+	<!-- Define the properties used by the build -->
+	<property name="app.name" value="TicTacToe" />
+	<property name="app.version" value="0.1-dev" />
+	<property name="work.home" value="${basedir}/jar_tmp/work" />
+	<property name="dist.home" value="${basedir}/jar_tmp/dist" />
+	<property name="src.home" value="${basedir}/src" />
+	
+	<!-- Define the CLASSPATH -->
+	<path id="compile.classpath">
+	</path>
+
+	<target name="run_build" depends="clean,compile,create_manifest,dist,release" />
+
+	<target name="clean">
+		<delete dir="${work.home}" />
+		<delete dir="${dist.home}" />
+	</target>
+
+	<target name="prepare" depends="clean">
+		<mkdir dir="${dist.home}" />
+		<mkdir dir="${work.home}" />
+		<mkdir dir="${work.home}/META-INF" />
+	</target>
+
+	<target name="compile" depends="prepare">
+		<javac srcdir="${src.home}" destdir="${work.home}" debug="on"  includeantruntime="yes">
+			<classpath refid="compile.classpath" />
+		</javac>
+		<copy todir="${work.home}">
+			<fileset dir="${src.home}" excludes="**/*.java" />
+		</copy>
+	</target>
+
+
+	<target name="create_manifest">
+		<!--Ensure to include the manifest content.-->
+		<mkdir dir="${work.home}/META-INF"/>
+		
+		<manifest file="${work.home}/META-INF/MANIFEST.MF">
+			<attribute name="Manifest-Version" value="1.0" />
+			<attribute name="Version" value="${app.version}" />
+			<attribute name="Company" value="Emerge Studio" />
+			<attribute name="Project" value="${app.name}" />
+			<attribute name="Java-Version" value="${java.version}" />
+			<attribute name="Main-Class" value="com.emergestudio.test.Main" />
+		</manifest>
+	</target>
+
+	<target name="dist" depends="compile">
+		<jar jarfile="${dist.home}/${app.name}.jar" 
+			manifest="${work.home}/META-INF/MANIFEST.MF" 
+			basedir="${work.home}" />
+	</target>
+
+	<target name="release" depends="dist">
+		<delete file="bin/${app.name}.jar" />
+		
+		<copy file="${dist.home}/${app.name}.jar"  todir="bin"/>
+		<delete dir="${basedir}/jar_tmp" />
+	</target>
+</project>
