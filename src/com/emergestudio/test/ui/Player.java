@@ -54,12 +54,6 @@ public class Player {
 	@Override
 	public boolean equals(Object objParam) 
 	{
-		if(objParam instanceof Player)
-		{
-			Player playerParam = (Player)objParam;
-			
-			return (this.id == playerParam.id);
-		}
 		return false;
 	}
 	
