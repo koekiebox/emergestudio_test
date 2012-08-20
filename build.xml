@@ -32,7 +32,6 @@
 		</copy>
 	</target>
 
-
 	<target name="create_manifest">
 		<!--Ensure to include the manifest content.-->
 		<mkdir dir="${work.home}/META-INF"/>

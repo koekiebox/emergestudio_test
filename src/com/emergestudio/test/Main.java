@@ -5,12 +5,12 @@ import java.awt.EventQueue;
 import com.emergestudio.test.ui.MainFrame;
 
 /**
+ * TODO **** None of the code may be changed in this class. ****
+ * 
  * @author jasonbruwer
  * 
- * TODO This is the starting point of the Tic-Tac-Toe application.
- * 
- * TODO You may proceed 
- * 
+ * TODO * This is the starting point of the Tic-Tac-Toe application.
+ * TODO * You may proceed to the MainFrame.java file.
  */
 public class Main {
 
