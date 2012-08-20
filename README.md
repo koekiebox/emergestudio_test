@@ -23,7 +23,7 @@ The "TODO" comments will guide you in what to do on class and method level for t
 
 *	The first point of entry is the com.emergestudio.test.Main.java file.
 *	Once you are done, you may run the build.xml ant build file to produce an executable TickTacToe.jar file.
-*	YOU ARE NOT ALLOWED TO REMOVE EXISTING CODE, ONLY ADD NEW CODE.
+*	YOU ARE NOT ALLOWED TO REMOVE EXISTING CODE, ONLY ADD NEW CODE WHERE INDICATED.
 
 Once you are done, please e-mail a zipped copy of the code to jason@emergestudio.net.
 
