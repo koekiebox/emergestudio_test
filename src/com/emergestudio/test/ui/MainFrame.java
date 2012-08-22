@@ -164,7 +164,7 @@ public class MainFrame extends JFrame {
 			
 			this.activePlayer = playerOne;
 			
-			this.infoLabel.setText("'"+this.activePlayer.getName()+"' it's your turn.");
+			this.infoLabel.setText(this.activePlayer.getSymbol()+": '"+this.activePlayer.getName()+"' it's your turn.");
 			
 			this.initializeButtons();
 			
@@ -214,7 +214,8 @@ public class MainFrame extends JFrame {
 						    "Congrats '"+this.activePlayer.getName()+"', you WON!!!.");
 				}
 				
-				this.infoLabel.setText("Click 'New Game' to start.");
+				this.infoLabel.setText("Click 'New Game' to start new players or continue.");
+				this.ticTacToeSquare.newGame();
 				this.initializeButtons();
 			}
 			else
@@ -238,6 +239,6 @@ public class MainFrame extends JFrame {
 			this.activePlayer = this.playerOne;
 		}
 		
-		this.infoLabel.setText("'"+this.activePlayer.getName()+"' it's your turn.");
+		this.infoLabel.setText(this.activePlayer.getSymbol()+": '"+this.activePlayer.getName()+"' it's your turn.");
 	}
 }
