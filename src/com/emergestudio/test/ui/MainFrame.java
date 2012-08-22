@@ -185,6 +185,11 @@ public class MainFrame extends JFrame {
 		{
 			TicTacButton ticTacButton = (TicTacButton)source;
 			
+			if(ticTacButton.isAlreadyUsed())
+			{
+				return;
+			}
+			
 			if(this.activePlayer.getSymbol() == Symbol.Cross)
 			{
 				ticTacButton.setImageCross();

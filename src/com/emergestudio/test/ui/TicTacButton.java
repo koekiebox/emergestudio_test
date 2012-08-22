@@ -16,6 +16,8 @@ public class TicTacButton extends JButton {
 	private int xLocation;
 	private int yLocation;
 	
+	private boolean isAlreadyUsed = false;
+	
 	/**
 	 */
 	private static final long serialVersionUID = -8698602751195862401L;
@@ -52,19 +54,27 @@ public class TicTacButton extends JButton {
 	}
 	
 	/**
-	 * 
+	 * @return
+	 */
+	public boolean isAlreadyUsed()
+	{
+		return this.isAlreadyUsed;
+	}
+	
+	/**
 	 */
 	public void setImageCross()
 	{
 		this.setIcon(new ImageIcon(MainFrame.class.getResource(CROSS_PATH)));
+		this.isAlreadyUsed = true;
 	}
 	
 	/**
-	 * 
 	 */
 	public void setImageNought()
 	{
 		this.setIcon(new ImageIcon(MainFrame.class.getResource(NOUGHT_PATH)));
+		this.isAlreadyUsed = true;
 	}
 	
 	/**
@@ -72,5 +82,6 @@ public class TicTacButton extends JButton {
 	public void setImageNone()
 	{
 		this.setIcon(null);
+		this.isAlreadyUsed = false;
 	}
 }
